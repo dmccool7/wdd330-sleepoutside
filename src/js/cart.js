@@ -4,6 +4,12 @@ function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
+  let totalAmount = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+
+  document.querySelector(".cart-footer").classList.remove("hide");
+  document.querySelector(".cart-total").textContent =
+    `Total: $${totalAmount.toFixed(2)}`;
 }
 
 function cartItemTemplate(item) {
