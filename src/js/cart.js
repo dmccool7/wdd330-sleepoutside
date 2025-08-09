@@ -9,6 +9,7 @@ function renderCartContents() {
     document.querySelector(".product-list").innerHTML =
       "<p>Your cart is empty. Start shopping!</p>";
     document.querySelector(".cart-footer").classList.add("hide");
+    document.querySelector(".cart-total").innerHTML = "";
     return;
   }
 
@@ -18,7 +19,7 @@ function renderCartContents() {
   let totalAmount = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
 
   document.querySelector(".cart-footer").classList.remove("hide");
-  document.querySelector(".cart-total").textContent =
+  document.querySelector(".cart-total").innerHTML =
     `Total: $${totalAmount.toFixed(2)}`;
 }
 
